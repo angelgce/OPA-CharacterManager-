@@ -40,7 +40,8 @@ public class ServiceRoster extends ServiceValidateRequest implements IServiceRos
                 .withString("description", requestCreateCharacter.description())
                 .withList("images", new ArrayList<>(requestCreateCharacter.images()))
                 .withString("slot", String.valueOf(serviceQueries.getAllCharacters().size()))
-                .withString("creationDate", LocalDateTime.now().toString());
+                .withString("creationDate", LocalDateTime.now().toString())
+                .withBoolean("isLocked", true);
         serviceQueries.addCharacter(character);
         return "success";
     }

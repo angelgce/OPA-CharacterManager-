@@ -12,26 +12,31 @@ import java.util.List;
 @DynamoDBTable(tableName = "roster")
 public class Character {
     @DynamoDBHashKey
-    String id;
+    private String id;
     @DynamoDBAttribute
-    String name;
+    private String name;
     @DynamoDBAttribute
-    String description;
+    private String description;
 
     @DynamoDBAttribute
-    String slot;
+    private String slot;
     @DynamoDBAttribute
-    List<String> images;
+    private List<String> images;
+
+    @DynamoDBAttribute
+    private boolean isLocked;
+
 
     public Character() {
     }
 
-    public Character(String id, String name, String description, String slot, List<String> images) {
+    public Character(String id, String name, String description, String slot, List<String> images, boolean isLocked) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.slot = slot;
         this.images = images;
+        this.isLocked = isLocked;
     }
 
     public String getId() {
@@ -58,6 +63,14 @@ public class Character {
         this.description = description;
     }
 
+    public String getSlot() {
+        return slot;
+    }
+
+    public void setSlot(String slot) {
+        this.slot = slot;
+    }
+
     public List<String> getImages() {
         return images;
     }
@@ -66,12 +79,12 @@ public class Character {
         this.images = images;
     }
 
-    public String getSlot() {
-        return slot;
+    public boolean isLocked() {
+        return isLocked;
     }
 
-    public void setSlot(String slot) {
-        this.slot = slot;
+    public void setLocked(boolean locked) {
+        isLocked = locked;
     }
 }
 
