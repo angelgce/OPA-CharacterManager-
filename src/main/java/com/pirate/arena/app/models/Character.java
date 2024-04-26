@@ -24,19 +24,19 @@ public class Character {
     private List<String> images;
 
     @DynamoDBAttribute
-    private boolean isLocked;
+    private boolean isUnlocked;
 
 
     public Character() {
     }
 
-    public Character(String id, String name, String description, String slot, List<String> images, boolean isLocked) {
+    public Character(String id, String name, String description, String slot, List<String> images, boolean isUnlocked) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.slot = slot;
         this.images = images;
-        this.isLocked = isLocked;
+        this.isUnlocked = isUnlocked;
     }
 
     public String getId() {
@@ -79,12 +79,14 @@ public class Character {
         this.images = images;
     }
 
-    public boolean isLocked() {
-        return isLocked;
+    public boolean isUnlocked() {
+        return isUnlocked;
     }
 
-    public void setLocked(boolean locked) {
-        isLocked = locked;
+    public void setUnlocked(boolean unlocked) {
+        isUnlocked = unlocked;
     }
+
+
 }
 
